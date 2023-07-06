@@ -81,6 +81,7 @@ const GlobalStyles = createGlobalStyle`
       
       --image-grayscale: 10%;
       --image-opacity: 90%;
+      color-scheme: dark;
     }
 
     /* Indigo */
@@ -184,6 +185,10 @@ const GlobalStyles = createGlobalStyle`
 
     /* For dark mode */
     filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
+  }
+
+  webkit-scrollbar {
+    visibility: visible;
   }
 `;
 export default GlobalStyles;
