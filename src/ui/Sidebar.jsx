@@ -19,7 +19,8 @@ function Sidebar() {
     <StyledSidebar>
       <Logo />
       <MainNav />
-      {isDev && <Uploader />}
+      {/* {isDev && <Uploader />} */}
+      <Uploader />
     </StyledSidebar>
   );
 }
