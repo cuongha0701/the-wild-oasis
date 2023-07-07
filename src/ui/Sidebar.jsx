@@ -14,11 +14,12 @@ const StyledSidebar = styled.aside`
 `;
 
 function Sidebar() {
+  const isDev = import.meta.env.DEV;
   return (
     <StyledSidebar>
       <Logo />
       <MainNav />
-      <Uploader />
+      {isDev && <Uploader />}
     </StyledSidebar>
   );
 }
