@@ -45,7 +45,11 @@ function TodayItem({ item }) {
         </Button>
       )}
       {status === 'checked-in' && (
-        <CheckoutButton guestsName={guests.fullName} bookingId={id} />
+        <CheckoutButton
+          guestsName={guests.fullName}
+          bookingId={id}
+          buttonStyles={{ variation: 'primary', size: 'small' }}
+        />
       )}
     </StyledTodayItem>
   );

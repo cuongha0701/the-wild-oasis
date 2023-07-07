@@ -63,7 +63,7 @@ function ConfirmAction({
         <Button
           variation={buttonVariation}
           disabled={disabled}
-          onClick={onConfirm}
+          onClick={() => onConfirm({ onSettled: () => onCloseModal?.() })}
         >
           {disabled ? <SpinnerMini /> : 'Confirm'}
         </Button>

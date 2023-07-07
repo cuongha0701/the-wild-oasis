@@ -142,7 +142,7 @@ function BookingRow({
           <ConfirmAction
             resourceName={guestName}
             action="checkout"
-            onConfirm={() => checkout(bookingId)}
+            onConfirm={(option) => checkout(bookingId, option)}
             disabled={isCheckingOut}
           />
         </Modal.Window>

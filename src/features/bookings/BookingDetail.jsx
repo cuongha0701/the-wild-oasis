@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { HiArrowUpOnSquare, HiTrash } from 'react-icons/hi2';
 
 import BookingDataBox from './BookingDataBox';
 import Row from '../../ui/Row';
@@ -14,8 +13,8 @@ import Empty from '../../ui/Empty';
 import Modal from '../../ui/Modal';
 import ConfirmAction from '../../ui/ConfirmAction';
 
-import { useBooking } from './useBooking';
 import { useMoveBack } from '../../hooks/useMoveBack';
+import { useBooking } from './useBooking';
 import { useDeleteBooking } from './useDeleteBooking';
 import { useCheckout } from '../check-in-out/useCheckout';
 
@@ -70,16 +69,12 @@ function BookingDetail() {
 
         {status === 'checked-in' && (
           <Modal.Open opens="checkout">
-            <Button icon={<HiArrowUpOnSquare />}>Check out</Button>
+            <Button>Check out</Button>
           </Modal.Open>
         )}
 
         <Modal.Open opens="delete-booking">
-          <Button
-            variation="danger"
-            icon={<HiTrash />}
-            disabled={isDeletingBooking}
-          >
+          <Button variation="danger" disabled={isDeletingBooking}>
             Delete
           </Button>
         </Modal.Open>
@@ -93,7 +88,7 @@ function BookingDetail() {
         <ConfirmAction
           resourceName={fullName}
           action="checkout"
-          onConfirm={() => checkout(bookingId)}
+          onConfirm={(option) => checkout(bookingId, option)}
           disabled={isCheckingOut}
         />
       </Modal.Window>

@@ -4,19 +4,13 @@ import Modal from '../../ui/Modal';
 import Button from '../../ui/Button';
 import ConfirmAction from '../../ui/ConfirmAction';
 
-function CheckoutButton({ bookingId, guestsName, onCloseModal }) {
+function CheckoutButton({ bookingId, guestsName, buttonStyles = {} }) {
   const { isCheckingOut, checkout } = useCheckout();
-
-  function handleConfirm() {
-    checkout(bookingId, {
-      onSettled: () => onCloseModal?.(),
-    });
-  }
 
   return (
     <Modal>
       <Modal.Open opens="checkout">
-        <Button variation="primary" size="small" disabled={isCheckingOut}>
+        <Button {...buttonStyles} disabled={isCheckingOut}>
           Check out
         </Button>
       </Modal.Open>
@@ -25,7 +19,7 @@ function CheckoutButton({ bookingId, guestsName, onCloseModal }) {
         <ConfirmAction
           resourceName={guestsName}
           action="checkout"
-          onConfirm={handleConfirm}
+          onConfirm={(option) => checkout(bookingId, option)}
           disabled={isCheckingOut}
         />
       </Modal.Window>
